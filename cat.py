@@ -5,11 +5,12 @@ import json
 #export OPENAI_API_KEY=
 
 def main():
+    #Gets the OPENAI_API_KEY key from the environment
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
+    # Defines the start and restart sequence as well as the prompt.
     start_sequence = "\nLani: "
     restart_sequence = "\n\nYou:"
-
     start_prompt = """Lani is a virtual cat powered by GPT-3. She is a ball of fluffy energy and loves pets. Interact and play with her.
 
     You: Kneel down and pet Lani
@@ -33,6 +34,7 @@ def main():
     You: Give Lani some catnip
     """
 
+    # Calls openai API with settings and recieves a response
     response = openai.Completion.create(
       engine="davinci",
       prompt=start_prompt,
@@ -43,6 +45,7 @@ def main():
       presence_penalty=0
     )
 
+    # Converst the json to a python object and isolates the response string
     jsonToPython = json.loads(response.last_response.body)
     result = jsonToPython['choices'][0]['text']
     print(result)

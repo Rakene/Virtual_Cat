@@ -1,7 +1,10 @@
 import java.util.Scanner;
 
 public class cat{
+
+  // Prints response statement given an action string
   public static void response(String action){
+    // Randomly assigns a number between 0 and 1
     double r = Math.random();
     if(action.equals("help") ){
       System.out.println("\thelp  -prints out all possible commands");
@@ -45,16 +48,23 @@ public class cat{
       System.out.println("\tlooks at you confusingly");
     }
   }
+
   public static void main(String[] args) {
+
           System.out.println("Play with the Cat");
           System.out.println("Type help for more information");
+          // Instantiates a Scanner object from the Scanner class
           Scanner sc = new Scanner(System.in);
           boolean end = true;
+
+          // While loop that checks for user input
       while (end) {
           String action = sc.next();
+          // If user types end, the loop breaks
           if (action.equals("end")){
             end = false;
           } else{
+            // Prints the response to the prompt
             response(action);
           }
       }
