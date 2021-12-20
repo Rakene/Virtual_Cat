@@ -2,7 +2,7 @@ import os
 import openai
 import json
 
-#export OPENAI_API_KEY=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
+#export OPENAI_API_KEY=
 
 def main():
     openai.api_key = os.getenv("OPENAI_API_KEY")
